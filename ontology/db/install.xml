@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/ontology/db" VERSION="20101203" COMMENT="XMLDB file for Moodle mod/ontology"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="ontology" COMMENT="Default comment for ontology, please edit me" NEXT="ontology_class">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Course ontology activity belongs to" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name field for moodle instances" PREVIOUS="course" NEXT="intro"/>
+        <FIELD NAME="intro" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="General introduction of the ontology activity" PREVIOUS="name" NEXT="introformat"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)" PREVIOUS="intro" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="introformat" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="timecreated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+	
+	<TABLE NAME="ontology_class" COMMENT="Smestuvanje na osnovni podatoci za vnesenata klasa" PREVIOUS="ontology" NEXT="ontology_class_expression">
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="name" />
+            <FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="description" />
+			<FIELD NAME="description" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="superclass" />	
+			<FIELD NAME="superclass" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="description" NEXT="status" />
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="superclass" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid"/>
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="userid" />
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+		</KEYS>
+	</TABLE>
+	
+	<TABLE NAME="ontology_class_expression" PREVIOUS="ontology_class" NEXT="ontology_property_individual" COMMENT="Izrazi za klasi (superklasi, disjunktni klasi, ekvivalentni klasi)">
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_classid" />
+			<FIELD NAME="ontology_classid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="expression" />
+			<FIELD NAME="expression" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_classid" NEXT="expression_text" />
+			<FIELD NAME="expression_text" TYPE="char" LENGTH="150" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="expression" NEXT="type" />
+			<FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="expression_text" NEXT="status"/>
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="type" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="ontology_classid" />
+			<KEY FIELDS="ontology_classid" NAME="ontology_classid" TYPE="foreign" PREVIOUS="primary" NEXT="userid" REFFIELDS="id" REFTABLE="ontology_class"/>
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="ontology_classid" REFFIELDS="id" REFTABLE="user"/>
+			
+		</KEYS>
+	</TABLE>
+	
+	<TABLE NAME="ontology_property_individual" PREVIOUS="ontology_class_expression" NEXT="ontology_property_disjoint" COMMENT="Podatoci za svojstva od tipot individua-individua">
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="superproperty" />
+			<FIELD NAME="superproperty" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="name" />
+			<FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="superproperty" NEXT="description" />
+			<FIELD NAME="description" TYPE="text" LENGTH="medium" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="name" NEXT="inverse" />
+			<FIELD NAME="inverse" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="description" NEXT="attributes" />
+			<FIELD NAME="attributes" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="inverse" NEXT="status" />
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="attributes" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="userid" />
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+		</KEYS>
+	</TABLE>
+	
+	<TABLE NAME="ontology_property_disjoint" PREVIOUS="ontology_property_individual" NEXT="ontology_property_equivalent" COMMENT="Site disjunktni svojstva na objektni svojstva i podatocni svojstva">
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_propertyid" />
+			<FIELD NAME="ontology_propertyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ontology_propertyid2" />
+			<FIELD NAME="ontology_propertyid2" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_propertyid" NEXT="type"  />
+			<FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_propertyid2" NEXT="status" />
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="type" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="userid" />
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+		</KEYS>
+	</TABLE>
+	
+		
+	<TABLE NAME="ontology_property_equivalent" PREVIOUS="ontology_property_disjoint" NEXT="ontology_property_data" COMMENT="Svojstvata na trojkite od oblik individua do individua">
+	  <FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_propertyid" />
+			<FIELD NAME="ontology_propertyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ontology_propertyid2" />
+			<FIELD NAME="ontology_propertyid2" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_propertyid" NEXT="type"  />
+			<FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_propertyid2" NEXT="status" />
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="type" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="userid" />
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+		</KEYS>
+	</TABLE>
+	
+	<TABLE NAME="ontology_property_data" PREVIOUS="ontology_property_equivalent" NEXT="ontology_property_expression" COMMENT="Podatoci za podatocnite svojstva">
+	  <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="superproperty"/>
+	    <FIELD NAME="superproperty" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="name" />
+		<FIELD NAME="name" TYPE="char" LENGTH="50" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="superproperty" NEXT="description" />
+		<FIELD NAME="description" TYPE="text" LENGTH="medium" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="name" NEXT="rang" />
+		<FIELD NAME="rang" TYPE="char" LENGTH="50" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="description" NEXT="attributes" />
+		<FIELD NAME="attributes" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="rang" NEXT="status" />
+		<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="attributes" NEXT="points"/>
+		<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+		<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+		<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+	  </FIELDS>
+	  <KEYS>
+	    <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="userid"/>
+		<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+	  </KEYS>
+    </TABLE>
+	
+	<TABLE NAME="ontology_property_expression" PREVIOUS="ontology_property_data" NEXT="ontology_individual" COMMENT="Podatoci vneseni za izrazite koi korisnicite gi pisuvaat za svojstvata">
+	  <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_propertyid"/>
+	    <FIELD NAME="ontology_propertyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="expression"/>
+		<FIELD NAME="expression" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_propertyid" NEXT="expression_text" />
+		<FIELD NAME="expression_text" TYPE="char" LENGTH="150" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="expression" NEXT="type" />
+		<FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="expression_text" NEXT="status"/>
+		<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="type" NEXT="points"/>
+		<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid"/>
+		<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+		<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+	  </FIELDS>
+	  <KEYS>
+	    <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="userid"/>
+		<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+	  </KEYS>
+    </TABLE>  
+	
+	<TABLE NAME="ontology_individual" PREVIOUS="ontology_property_expression" NEXT="ontology_individual_expression" COMMENT="Podatoci za vnesenata individua">
+	  <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="name"/>
+		<FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="description"/>
+		<FIELD NAME="description" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="status"/>
+		<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="description" NEXT="points"/>
+		<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+		<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+		<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+	  </FIELDS>
+	  <KEYS>
+	    <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="userid"/>
+		<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+	  </KEYS>
+	</TABLE> 
+	
+    <TABLE NAME="ontology_individual_expression" PREVIOUS="ontology_individual" NEXT="ontology_individual_property_individual" COMMENT="Podatoci za izrazi pisuvani za instanci">
+	  <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_individualid"/>
+	    <FIELD NAME="ontology_individualid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="expression"/>
+		<FIELD NAME="expression" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_individualid" NEXT="expression_text" />
+		<FIELD NAME="expression_text" TYPE="char" LENGTH="150" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="expression" NEXT="status" />
+		<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="expression_text" NEXT="points"/>
+		<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+		<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+		<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+	  </FIELDS>
+	  <KEYS>
+	    <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="userid"/>
+		<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+	  </KEYS>
+    </TABLE>  
+
+	<TABLE NAME="ontology_individual_property_individual" PREVIOUS="ontology_individual_expression" NEXT="ontology_individual_property_data" COMMENT="Podatoci za svojstva od tip individua-individua">
+	  <FIELDS>
+	    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_individualid"/>
+	    <FIELD NAME="ontology_individualid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ontology_individualid2"/>
+		<FIELD NAME="ontology_individualid2" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_individualid" NEXT="ontology_propertyid"/>
+		<FIELD NAME="ontology_propertyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_individualid2" NEXT="status"/>
+		<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="ontology_propertyid" NEXT="points"/>
+		<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+		<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+		<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+	  </FIELDS>
+	  <KEYS>
+	    <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="userid"/>
+		<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+	 </KEYS>
+    </TABLE>
+	
+	<TABLE NAME="ontology_individual_property_data" PREVIOUS="ontology_individual_property_individual" NEXT="ontology_student_rank" COMMENT="Podatoci za svojstva od tip individua-podatok za sekoja instanca" >
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ontology_individualid" />
+            <FIELD NAME="ontology_individualid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ontology_propertyid"/>
+			<FIELD NAME="ontology_propertyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontology_individualid" NEXT="data"/>
+			<FIELD NAME="data" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="ontology_propertyid" NEXT="status"/>
+			<FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="data" NEXT="points"/>
+			<FIELD NAME="points" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="status" NEXT="userid" />
+			<FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="points" NEXT="course_modulesid"  />
+			<FIELD NAME="course_modulesid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" NEXT="userid" />
+			<KEY FIELDS="userid" NAME="userid" TYPE="foreign" PREVIOUS="primary" REFFIELDS="id" REFTABLE="user"/>
+		</KEYS>
+	</TABLE>
+	<TABLE NAME="ontology_student_rank" PREVIOUS="ontology_individual_property_data" COMMENT="Rangiranje na studenti" >
+		<FIELDS>
+			<FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="userid" />
+            <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ontologyid"/>
+			<FIELD NAME="ontologyid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="userid" NEXT="correct"/>
+			<FIELD NAME="correct" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ontologyid" NEXT="incorrect"/>
+			<FIELD NAME="incorrect" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="correct" NEXT="penalty"/>
+			<FIELD NAME="penalty" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="incorrect" NEXT="rating" />
+			<FIELD NAME="rating" TYPE="float" DECIMALS="2" LENGTH="10" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="penalty"  />
+		</FIELDS>
+		<KEYS>
+			<KEY FIELDS="id" NAME="primary" TYPE="primary" />
+		</KEYS>
+	</TABLE>
+  </TABLES>
+</XMLDB>

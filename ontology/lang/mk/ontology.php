@@ -1,0 +1,408 @@
+<?php
+
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+
+/**
+ * English strings for newmodule
+ *
+ * You can have a rather longer description of the file as well,
+ * if you like, and it can span multiple lines.
+ *
+ * @package   mod_ontology
+ * @copyright 2010 Your Name
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+$string['newmodulename'] = 'Онтологија';
+$string['modulename'] = 'Онтологија';
+$string['modulenameplural'] = 'Онтологии';
+$string['ontologyfieldset'] = 'Custom example fieldset';
+$string['ontologyname'] = 'Онтологија';
+$string['newmodulename_help'] = 'Внесете го името на онтологијата.';
+$string['ontologyname_help'] = 'Внесете го името на онтологијата.';
+$string['ontology'] = 'Онтологија';
+$string['pluginadministration'] = 'Администрација на онтологија';
+$string['pluginname'] = 'Онтологија';
+$string['typeontologija']='Онтологија';
+$string['name']='Онтологија';
+$string['week']='Недела';
+$string['topic']='Топик';
+$string['noontology']='Нема онтологија';
+$string['general']='General';
+$string['maximumchars']='Максимум карактери';
+$string['test']='Ова е тест';
+
+//common words
+$string['Back']='Назад';
+$string['Class']='Класа';
+$string['Classes']='Класи';
+$string['Oproperty']='Објектно својство';
+$string['Oproperties']='Објектни својства';
+$string['Dproperty']='Податочно својство';
+$string['Dproperties']='Податочни својства';
+$string['Name']='Име';
+$string['Description']='Опис';
+$string['Superclass']='Надкласа';
+$string['Superclasses']='Надкласи';
+$string['Equivalent_Classes']='Еквивалентни класи';
+$string['Disjoint_Classes']='Дисјунктни класи';
+$string['Property_domain']='Домен на својството';
+$string['Property_range']='Ранг на својството';
+$string['Range']='Ранг';
+$string['Superproperty']='Надсвојство';
+$string['Equivalent_Properties']='Еквивалентни својства';
+$string['Disjoint_Properties']='Дисјунктни својства';
+$string['Inverse_property']='Инверзно својство';
+$string['Characteristics']='Карактеристики'; //karakteristiki na objektni i podatocni svojstva
+$string['Functional']='Функционално';
+$string['Inverse_Functional']='Инверзно функционално';
+$string['Transitive']='Транзитивно';
+$string['Symetric']='Симетрично';
+$string['Asymetric']='Асиметрично';
+$string['Reflexive']='Рефлексивно';
+$string['Ireflexive']='Ирефлексивно';
+$string['Cancel']='Откажи';
+$string['Save']='Зачувај';
+$string['No_classes']='Нема класи';
+$string['No_superclasses']='Нема надкласи';
+$string['No_equivalent_classes']='Нема еквивалентни класи';
+$string['No_disjoint_classes']='Нема дисјунктни класи';
+$string['No_domains']='Нема домени';
+$string['No_range']='Нема ранг';
+$string['No_equivalent_properties']='Нема еквивалентни својства';
+$string['No_disjoint_properties']='Нема дисјунктни својства';
+
+$string['No_description']='Нема опис';
+$string['Individual']='Инстанца';
+$string['Individuals']='Инстанци';
+
+//uncommon words
+$string['Class_data']='Податоци за класата';
+$string['Choose_class']='Изберете ја класата';
+$string['Add_new_subclass']='Додади нова подкласа';
+$string['Edit']='Уреди';
+$string['Term_guide']='Упатство за поимите';
+$string['Classes_merge']='Спојување на класи';
+$string['No_superclass_expressions']='Нема изрази за надкласи';
+$string['No_equivalent_class_expressions']='Нема изрази за еквивалентни класи';
+$string['No_disjoint_class_expressions']='Нема изрази за дисјунктни класи';
+$string['Class_name']='Име на класата';
+$string['Class_description']='Опис на класата';
+$string['Add_new_superclass']='Додади нова надкласа';
+$string['Add_new_equivalent_class']='Додади нова еквивалентна класа';
+$string['Add_new_disjoint_class']='Додади нова дисјунктна класа';
+$string['Input_number']='Внеси број';
+$string['For_student']='За студентот';
+$string['Edit_class']='Уредување на класа';
+$string['Choose_new_superclass']='Избери нова надкласа';
+$string['Oproperty_data']='Податоци за објектното својство';
+$string['Choose_oproperty']='Изберете го објектното својство';
+$string['Add_new_suboproperty']='Додади ново објектно подсвојство';
+$string['Oproperties_merge']='Спојување на објектни својства';
+$string['No_equivalent_properties']='Нема еквивалентни својства';
+$string['No_disjoint_properties']='Нема дисјунктни својства';
+$string['No_inverse_property']='Нема инверзно';
+$string['Characteristics_description']='од вкупен ранг на студенти внеле како долунаведеното';
+$string['Oproperty_name']='Име на објектното својство';
+$string['Oproperty_description']='Опис на објектното својство';
+$string['No_characteristics']='Нема карактеристики';
+$string['Add_new_domain']='Додади нов домен';
+$string['Add_new_range']='Додади нов ранг';
+$string['Add_new_equivalent_property']='Додади ново еквивалентно својство';
+$string['Add_new_disjoint_property']='Додади нова дисјунктно својство';
+$string['Edit_oproperty']='Уредување на објектно својство';
+$string['Choose_new_superproperty']='Избери новo надсвојство';
+$string['Enter_name']='Внесете име';
+$string['Enter_description']='Внесете опис';
+$string['Dproperty_data']='Податоци за податочното својство';
+$string['Choose_dproperty']='Изберете го податочното својство';
+$string['Add_new_subdproperty']='Додади ново податочно подсвојство';
+$string['Dproperty_name']='Име на податочното својство';
+$string['Dproperty_description']='Опис на податочното својство';
+$string['Dproperties_merge']='Спојување на податочни својства';
+$string['Property_domains']='Домени на својството';
+$string['Edit_dproperty']='Уредување на податочно својство';
+$string['Individual_data']='Податоци за инстанцата';
+$string['Choose_individual']='Изберете ја инстанцата';
+$string['Add_new_individual']='Додади нова инстанца';
+$string['Individual_name']='Име на инстанцата';
+$string['Individual_description']='Опис на инстанцата';
+$string['Instance_class']='Класа од кои е инстанцирана';
+$string['Add_new_class']='Додади нова класа';
+$string['No_oproperties']='Нема објектни својства';
+$string['No_dproperties']='Нема податочни својства';
+$string['Add_new_oproperty']='Додади ново објектно својство';
+$string['Add_new_dproperty']='Додади ново податочно својство';
+$string['Individuals_merge']='Спојување на инстанци';
+$string['Edit_individual']='Уредување на инстанца';
+$string['Activity_duration']='Времетраење на активноста';
+$string['Activity_number']='активност број';
+$string['Welcome_professor']='Добредојде професор';
+$string['View_all_terms']='Преглед на сите поими во онтологијата';
+$string['Export_to_owl']='Зачувај во OWL';
+$string['Choose']='Изберете';
+$string['View_classes']='Преглед на класи';
+$string['View_oproperties']='Преглед на објектни својства';
+$string['View_dproperties']='Преглед на податочни својства';
+$string['View_individuals']='Преглед на инстанци';
+$string['Closed_activity']='Активноста е затворена';
+$string['Inputted_terms']='Вашите внесени објекти се';
+$string['Type']='Тип';
+$string['Status']='Статус';
+$string['Points']='Поени';
+$string['No_inputted_terms']='Немате внесени податоци за активноста';
+$string['Teacher_comments']='Коментари од професорот';
+$string['No_comments']='Нема коментари';
+$string['Start']='Почеток';
+$string['End']='Крај';
+$string['For_ontology']='За онтологијата';
+$string['Add_to_ontology']='Дополнување на:';
+$string['Ontology_name']='Име на онтологијата';
+$string['Create_new_ontology']='Креирај нова онтологија';
+$string['Fill_old_ontology']='Дополни постоечка онтологија';
+$string['Activity_data']='Податоци за активноста';
+$string['Activity_start']='Почеток на активноста';
+$string['Activity_end']='Крај на активноста';
+
+
+//Eki & Deki
+$string['Adding_new_class']='Додавање на нова класа';
+$string['Adding_new_oproperty']='Додавање на ново објектно својство';
+$string['Adding_new_dproperty']='Додавање на ново податочно својство';
+$string['Adding_new_individual']='Додавање на нова инстанца';
+$string['Grading']='Оценување';
+$string['Additional_explanations']='Дополнителни објаснувања';
+$string['Explanation_of_terms']='Објаснување на термини';
+$string['Class_definition']='е множество инстанци кои имаат исти карактеристики. Класите се организирани во хиерархија со наследување, а основна класа од која сите останати се наследени е наречена Thing (Основна).';
+$string['Superclass_definition']='претставува класа која друга класа ја наследува, како и сите нејзини карактеристики. Постои една основна суперкласа наречена Thing (Основна) која нема инстанци и на која сите класи и се поткласи.';
+$string['Equivalent_Classes_definition']='се класи кои имаат исто множество инстанци на класите.';
+$string['Disjoint_Classes_definition']='<strong>Дисјунктни класи</strong> се класи за кои важи дека инстанца од едната класа не може истовремено да биде инстанца на другата класа.';
+$string['Subclass']='Подкласа';
+$string['Subclass_definition']='е класа која е наследена од друга класа и чии инстанци се подмножество од инстанците на класата од која е наследена.';
+$string['Individual_definition']='претставува инстанца на класа која може да припаѓа на една или повеќе класи.';
+$string['Term_black_color']='Поимите кои се веќе во онтологија се со <strong>црна боја</strong> во хиерархијата.';
+$string['Term_red_color']='Доколку поимот што сте го внеле е избоен со <strong>црвена боја</strong> во хиерархијата тогаш тој не е прифатен и чека на прегледување.';
+$string['Term_green_color']='Со прифаќање на поим во онтологија, се бои со <strong>зелена боја</strong>.';
+$string['Term_pink_color']='Со одбивање или класифицирање на истиот како казнет, се бои со <strong>розева боја</strong>.';
+$string['Cannot_delete_class_with_subclass']='После внесување на класа, истата не може да се избрише само ако има подкласа.';
+$string['Number_of_points']='Сите поими носат максимум по 2 поени, но за внесување на погрешен поим може да има и негативни поени.';
+$string['Properties']='Својства';
+$string['Property']='Својство';
+$string['Property_definition']='претставува релација помеѓу индивидуи или индивидуа и податок. Својствата имаат домен и ранг и може да имаат карактеристики како на пример да бидат транзитивни, симетрични, инверзни, функционални и др.';
+$string['Dproperties_definition']='или својства индивидуа до податок, опишуваат релации помеѓу инстанца на класа и податок од друг тип.';
+$string['Domain']='Домен';
+$string['Domain_definition']='на својствата ги ограничува индивидуите на кои може да се однесува истиот. Ако својството е релација помеѓу индивидуи или индивидуа и податок, и има класа како свој домен, тогаш индивидуата е инстанца од таа класа.';
+$string['Range_DP_definition']='кај податочни својства се дефинира како тип на податокот.';
+$string['Equivalent_Properties_definition']='се својства кои може да имаат исти вредности, односно релација помеѓу една индивидуа и истото множество индивидуи.';
+$string['Disjoint_Properties_definition']='се својства кои не можат да имаат исти вредности.';
+$string['Characteristics_of_the_properties']='Карактеристики на својства';
+$string['Characteristic_of_the_property_is']='Карактеристикa на својствата е:';
+$string['functional_property']='функционално својство';
+$string['functional_property_definition']='е она својство од облик (x,име_својство,y) каде x,y се инстанци и каде за едно x, постои едно и само едно y. Имено ако (x,име_својство,y) и (x,име_својство,z) тогаш следува y=z.';
+$string['Cannot_delete_dproperty_with_subproperty']='После внесување на податочно својство, ако својството има подсвојство, не може да се избрише.';
+$string['Oproperties_definition']='или својства индивидуа до индивидуа, опишуваат релации помеѓу инстанци на две класи.';
+$string['Range_OP_definition']='на својствата ги ограничува индивидуите чија вредност може да ја има истиот. Ако својството е релација помеѓу индивидуи, и има класа како свој ранг, тогаш другата индивидуа е инстанца од таа класа.';
+$string['Cannot_delete_oproperty_with_subproperty']='После внесување на објектно својство, ако својството има подсвојство, не може да се избрише.';
+$string['inverse_property_definition']='Ако за својство P се вели дека е <strong>инверзно својство</strong> тогаш за инстанците x и y важи: P(x,y) => P(y,x) ^ P(y,x) => P(x,y) ';
+$string['OP_functional_property_definition']='Ако за својство P се вели дека е <strong>функционално својство</strong> тогаш за инстанците x, y и z важи: P(x,y) ^ P(x,z) => y=z';
+$string['inverse-functional_property_definition']='Ако за својство P се вели дека е <strong>инверзно-функционално својство</strong> тогаш за инстанците x, y и z важи: P(y,x) ^ P(z,x) => y=z ';
+$string['transitive_property_definition']='Ако за својство P се вели дека е <strong>транзитивно својство</strong> тогаш за инстанците x, y и z важи: P(x,y) ^ P(y,z) => P(x,z) ';
+$string['symmetric_property_definition']='Ако за својство P се вели дека е <strong>симетрично својство</strong> тогаш за инстанците x и y важи: P(x,y) <=> P(y,x) ';
+$string['asymmetric_property_definition']='Ако за својство P се вели дека е <strong>асиметрично својство</strong> тогаш за секоја од инстанците x и y не важи: P(x,y) <=> P(y,x) ';
+$string['reflexively_property_definition']='Ако за својство P се вели дека е <strong>рефлексивно својство</strong> тогаш за инстанца x важи P(x,x) ';
+$string['irreflexive_property_definition']='Ако за својство P се вели дека е <strong>нерефлексивно својство</strong> тогаш за секоја инстанца x не важи P(x,x) ';
+$string['Individuals_definition']='претставува објект во доменот за кој што ја градиме онтологијата.';
+$string['individuals_deletion']='После внесување на индивидуа, ако не е прегледана истата, може да се избрише.';
+$string['Waiting_for_approval']='Чека на одобрување';
+$string['Accepted_in_ontology']='Прифатено и е во онтологија';
+$string['Accepted_not_in_ontology']='Прифатено и не е во онтологија';
+$string['Rejected']='Одбиено';
+$string['Expression_for_the_superclass']='Израз за надкласа';
+$string['Expression_for_the_equivalent_class']='Израз за еквивалентна класа';
+$string['Expression_for_the_disjoint_class']='Израз за дисјунктна класа';
+$string['Disjoint_object_property']='Дисјунктно објектно својство';
+$string['Disjoint_data_property']='Дисјунктно податочно својство';
+$string['Equivalent_object_property']='Еквивалентно објектно својство';
+$string['Equivalent_data_property']='Еквивалентно податочно својство';
+$string['Expression_for_domain_of_object_property']='Израз за домен на објектно својство';
+$string['Expression_for_range_of_object_property']='Израз за ранг на објектно својство';
+$string['Expression_for_domain_of_data_property']='Израз за домен на податочно својство';
+$string['Expression_for_superclass_of_an_individual']='Израз за суперкласа на инстанца';
+$string['Object_property_of_an_individual']='Објектно својство на инстанца';
+$string['Data_property_of_an_individual']='Податочно својство на инстанца';
+$string['Review']='Прегледај';
+$string['Enter comment']='Напиши коментар';
+//Stef
+$string['accept_the_changes'] = 'Прифати ги промените';
+$string['accepted'] = 'Прифатени';
+$string['add_class_to_merging_list'] = 'Стави ја во листата на класи за спојување';
+$string['add_individual_to_merging_list'] = 'Стави ја во листата на инстанци за спојување';
+$string['add_property_to_merging_list'] = 'Стави го во листата на својства за спојување';
+$string['add_to_ontology'] = 'Додади во онтологија';
+$string['adding_a_notion_to_ontology'] = 'Ставање на поими во онтологија';
+$string['alphabetical'] = 'Приказ по азбучен ред';
+$string['asymmetric'] = 'Асиметрична';
+$string['back'] = 'Назад';
+$string['by_rating'] = 'Приказ по рејтинг';
+$string['cancel'] = 'Откажи';
+$string['caution_By_removing_the_class_the_following_expressions_will_also_be_removed'] = 'Внимание! Со отстранување на класата следниве изрази ќе бидат избришани';
+$string['caution_By_removing_the_individual_the_following_expressions_will_also_be_removed'] = 'Внимание! Со отстранување на инстанцата следниве изрази ќе бидат избришани';
+$string['caution_By_removing_the_property_the_following_expressions_will_also_be_removed'] = 'Внимание! Со отстранување на својството следниве изрази ќе бидат избришани';
+$string['changing_the_superclass'] = 'Менување на надкласа:';
+$string['characteristicks'] = 'Карактеристики';
+$string['checking_and_adding_notions_to_ontology'] = 'Преглед и додавање на поими во онтологија';
+$string['choise_of_classes_for_ontology'] = 'Избор на класи за во онтологија';
+$string['choise_of_data_properties_for_ontology'] = 'Избор на податочни својства за во онтологија';
+$string['choise_of_individuals_for_ontology'] = 'Избор на инстанци за во онтологија';
+$string['choise_of_object_properties_for_ontology'] = 'Избор на објектни својства за во онтологија';
+$string['choose_a_description'] = 'Изберете опис';
+$string['choose_class_expressions_from_which_it_is_instanced'] = 'Изберете изрази за класа од која е инстанцирана';
+$string['choose_data_properties'] = 'Изберете податочни својства';
+$string['choose_description_and_characteristicks'] = 'Изберете опис и карактеристики:';
+$string['choose_description_characteristicks_and_inverse_function'] = 'Изберете опис, карактеристики и инверзна функција:';
+$string['choose_disjoint_class_expressions'] = 'Изберете изрази за дисјунктни класи';
+$string['choose_disjoint_properties'] = 'Изберете дисјунктни својства';
+$string['choose_domain_expressions'] = 'Изберете изрази за домени';
+$string['choose_equivalent_class_expressions'] = 'Изберете изрази за еквивалентни класи';
+$string['choose_equivalent_properties'] = 'Изберете еквивалентни својства';
+$string['choose_object_properties'] = 'Изберете објектни својства';
+$string['choose_range_expressions'] = 'Изберете изрази за рангови';
+$string['choose_superclass_expressions'] = 'Изберете изрази за надкласи';
+$string['choose_the_merging_class'] = 'Изберете ја класата со која ќе спојувате';
+$string['choose_the_merging_individual'] = 'Изберете ја инстанцата со која ќе спојувате';
+$string['choose_the_merging_property'] = 'Изберете го својството со кое ќе спојувате';
+$string['class_name'] = 'Име на класа';
+$string['class_review'] = 'Преглед на класи';
+$string['classes'] = 'Класи';
+$string['data_property_review'] = 'Преглед на податочни својства';
+$string['delete_the_class'] = 'избриши ја класата';
+$string['delete_the_individual'] = 'избриши ја индиивидуата';
+$string['delete_the_property'] = 'избриши го својството';
+$string['description'] = 'Опис';
+$string['edit_the_list'] = 'Едитирај ја листата';
+$string['eval_fin_for_students'] = 'Студенти завршени со прегледување:';
+$string['examination'] = 'Прегледување';
+$string['examination_finished'] = 'Завршено со прегледување.';
+$string['existing_properties_not_updated'] = 'Нема ажурирања на постоечките својства';
+$string['expression_for_the_class'] = 'израз кај класата';
+$string['expression_for_the_individual'] = 'израз кај инстанцата';
+$string['expression_for_the_property'] = 'израз кај својството';
+$string['functional'] = 'Функционална';
+$string['grade_the_students'] = 'Оцени ги студентите';
+$string['in_this_activity_all_students_participated'] = 'Во оваа активност учествувале сите студенти.';
+$string['individuals'] = 'Инстанци';
+$string['individuals_name'] = 'Име на инстанца';
+$string['instances_review'] = 'Преглед на инстанци';
+$string['inverse_functional'] = 'Инверзна Функционална';
+$string['inverse_property'] = 'Инверзно својство';
+$string['irreflexive'] = 'Ирефклексивна';
+$string['It_has_no_characteristics'] = 'Нема карактеристики';
+$string['left'] = 'Останати';
+$string['list_of_classes_for_merging'] = 'Листа на класи за спојување:';
+$string['list_of_individuals_for_merging'] = 'Листа на инстанци за спојување';
+$string['list_of_properties_for_merging'] = 'Листа на својства за спојување:';
+$string['merge_it_with_another_already_accepted_class_from_ontology'] = 'Спој ја со друга прифатена класа во онтологијата';
+$string['merge_it_with_another_already_accepted_individual_from_ontology'] = 'Спој ја со друга прифатена инстанца во онтологијата';
+$string['merge_it_with_another_already_accepted_property_from_ontology'] = 'Спој го со другo прифатенo својство во онтологијата';
+$string['merging_the_classes'] = 'Спојување на класите';
+$string['merging_the_individuals'] = 'Спојување на инстанците';
+$string['merging_the_properties'] = 'Спојување на својствата';
+$string['name_and_surname'] = 'Име и презиме';
+$string['new_class_expressions'] = 'Нови изрази за класи';
+$string['new_classes'] = 'нови класи.';
+$string['new_classes_in_ontology'] = 'Нови класи во онтологијата';
+$string['new_data_properties'] = 'Нови податочни својства';
+$string['new_data_properties'] = 'нови податочни својства.';
+$string['new_data_properties_in_ontology'] = 'Нови податочни својства во онтологијата';
+$string['new_disjoint_class_expressions'] = 'Нови изрази за дисјунктни класи';
+$string['new_disjoint_property_expressions'] = 'Нови изрази за дисјунктни својства';
+$string['new_domain_expressions'] = 'Нови изрази за домени';
+$string['new_equivalent_class_expressions'] = 'Нови изрази за еквивалентни класи';
+$string['new_equivalent_property_expressions'] = 'Нови изрази за еквивалентни својства';
+$string['new_individuals'] = 'нови инстанци.';
+$string['new_individuals_in_ontology'] = 'Нови инстанци во онтологијата';
+$string['new_object_properties'] = 'Нови објектни својства';
+$string['new_object_properties'] = 'нови објектни својства.';
+$string['new_properties_in_ontology'] = 'Нови својства во онтологијата';
+$string['new_range_expressions'] = 'Нови изрази за рангови';
+$string['new_superclass_expressions'] = 'Нови изрази за надкласи';
+$string['no_characteristics'] = 'Нема карактеристики';
+$string['no_inverse_property'] = 'Нема инверзно својство';
+$string['no_new_classes_for_adding_to_ontology'] = 'Нема нови класи за додавање во онтологијата';
+$string['no_new_data_properties'] = 'Нема нови податочни својства';
+$string['no_new_data_properties_for_ontology'] = 'Нема нови податочни својства за додавање во онтологијата';
+$string['no_new_individuals_in_ontology'] = 'Нема нови инстанци во онтологијата';
+$string['no_new_object_properties'] = 'Нема нови објектни својства';
+$string['no_new_object_properties_for_ontology'] = 'Нема нови објектни својства за додавање во онтологијата';
+$string['note'] = 'Коментар';
+$string['note'] = 'Коментар:';
+$string['note_for_the_student'] = 'Коментар за студентот:';
+$string['nothing_to_evaluate'] = 'Нема за прегледување.';
+$string['object_properties'] = 'Објектни својства';
+$string['object_property_review'] = 'Преглед на објектни својства';
+$string['OK'] = 'ОК';
+$string['penalty'] = 'Казнети';
+$string['profile'] = 'Профил';
+$string['property_name'] = 'Име на својство';
+$string['range'] = 'Ранг';
+$string['rating'] = 'Рејтинг';
+$string['reflexive'] = 'Рефлексивна';
+$string['refused'] = 'Одбиени';
+$string['reject_all_changes'] = 'Отфрли ги сите промени';
+$string['remove'] = 'Отстрани';
+$string['sort'] = 'Сортирај:';
+$string['student_note_description'] = 'Тука можете да им пишете на студентите коментар за активноста. На пример, доколку тие не се приджуваат до правилата, прават некои грешки при градење на онтологијата или пак да им пишете по некој пофален збор.';
+$string['students'] = 'Студенти';
+$string['students_overview'] = 'Преглед на сите студенти';
+$string['students_participated_and_waiting'] = 'Студенти кои учествувале во оваа активност и чекаат за прегледување';
+$string['students_that_did_not_participated_in_this_activity'] = 'Студенти кои не учествувале во оваа активност';
+$string['superclass'] = 'Надкласа';
+$string['superproperty'] = 'Надсвојство';
+$string['symmetric'] = 'Симетрична';
+$string['there_are'] = 'Постојат';
+$string['there_are_no_class_expressions'] = 'Нема изрази за класи';
+$string['there_are_no_classes_in_the_list'] = 'Нема класи ставени во листата.';
+$string['there_are_no_data_properties'] = 'Нема податочни својства';
+$string['there_are_no_disjoint_class_expressions'] = 'Нема изрази за дисјунктни класи ';
+$string['there_are_no_disjoint_properties'] = 'Нема дисјунктни својства';
+$string['there_are_no_domain_expressions'] = 'Нема изрази за домени';
+$string['there_are_no_equivalent_class_expressions'] = 'Нема изрази за еквивалентни класи';
+$string['there_are_no_equivalent_properties'] = 'Нема еквивалентни својства';
+$string['there_are_no_individuals_in_the_list'] = 'Нема инстанци ставени во листата.';
+$string['there_are_no_new_expressions'] = 'Нема нови изрази';
+$string['there_are_no_object_properties'] = 'Нема објектни својства';
+$string['there_are_no_properties_present_in_the_list'] = 'Нема својства ставени во листата.';
+$string['there_are_no_range_expressions'] = 'Нема изрази за рангови';
+$string['there_are_no_superclass_expressions'] = 'Нема изрази за надкласи';
+$string['there_are_no_updates_on_existing_classes'] = 'Нема ажурирања на постоечките класи';
+$string['there_are_no_updates_on_existing_individuals'] = 'Нема ажурирања на постоечките инстанци';
+$string['thing_the_base_class'] = 'Основна';
+$string['transitive'] = 'Транзитивна';
+$string['update_existing_classes_in_ontology'] = 'Ажурирање на постоечки класи во онтологијата';
+$string['update_existing_individuals_in_ontology'] = 'Ажурирање на постоечки индивидуи во онтологијата';
+$string['update_existing_properties_in_ontology'] = 'Ажурирање на постоечки податочни својства во онтологијата';
+$string['updated_classes'] = 'ажурирани класи.';
+$string['updated_data_properties'] = 'ажурирани податочни својства.';
+$string['updated_individuals'] = 'ажурирани инстанци.';
+$string['updated_object_properties'] = 'ажурирани објектни својства.';
+$string['you_still_can_not_grade_the_students'] = 'Сеуште не можете да ги оцените студентите.';
+$string['data_properties'] = 'Податочни својства';
+$string['get_exported_owl'] = 'Можете да ја селектирате и копирате целата онтологија изгенерирана во OWL јазикот тука:';
+$string['activity_description']='Опис на активноста';
+$string['faculty_name']='Развиено на Факултет за информатички науки и компјутерско инженерство, Р. Македонија';
+$string['version']='Верзија:';

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+<rdf:RDF
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<owl:Ontology rdf:about=""/>
+<!-- Classes -->
+<owl:Class rdf:about="&owl;Thing"> 
+</owl:Class> 
+<owl:Class rdf:about="#C__"> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class> 
+<owl:Class rdf:about="#C__"> 
+<rdfs:subClassOf rdf:resource="#C__"/>
+</owl:Class> 
+<owl:Class rdf:about="#C__"> 
+<rdfs:subClassOf rdf:resource="#C__"/>
+</owl:Class> 
+<owl:Class rdf:about="#C++"> 
+<rdfs:subClassOf rdf:resource="#Predlog"/>
+</owl:Class> 
+<owl:Class rdf:about="#ova_e_proba_&_+"> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class> 
+<owl:Class rdf:about="#Predlog3"> 
+<rdfs:subClassOf rdf:resource="#Predlog2__"/>
+</owl:Class> 
+<owl:Class rdf:about="#Predlog1"> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class> 
+<owl:Class rdf:about="#Predlog2__"> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class> 
+<owl:Class rdf:about="#Predlog"> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class> 
+<owl:Class rdf:about="#Faculty"> 
+<owl:disjointWith> 
+<rdf:Description rdf:about="&owl;Thing"/>
+
+</owl:disjointWith> 
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+<rdfs:subClassOf> 
+<rdf:Description rdf:about="#C++"/>
+
+</rdfs:subClassOf>
+</owl:Class> 
+<owl:Class rdf:about="#Test2++"> 
+<rdfs:subClassOf rdf:resource="#Faculty"/>
+</owl:Class> 
+<!-- Object Properties -->
+<owl:ObjectProperty rdf:about="#C&&"> 
+<owl:inverseOf rdf:resource="#ima_java_C++"/>
+<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+</owl:ObjectProperty> 
+<owl:ObjectProperty rdf:about="#ima_java_C++"> 
+<rdfs:domain> 
+<rdf:Description rdf:about="&owl;Thing"/>
+
+</rdfs:domain>
+<rdfs:range 
+<rdf:Description rdf:about="#Faculty"/>
+
+</rdfs:range>
+<rdfs:range 
+<rdf:Description rdf:about="#C++"/>
+
+</rdfs:range>
+<owl:propertyDisjointWith rdf:resource="#Java_na"/>
+<owl:propertyDisjointWith rdf:resource="#C&&"/>
+<owl:equivalentProperty rdf:resource="#Основно"/>
+<owl:inverseOf rdf:resource="#Java_na"/>
+<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+<rdf:type rdf:resource="&owl;SymmetricProperty"/>
+<rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+</owl:ObjectProperty> 
+<!-- Data Properties -->
+<owl:DatatypeProperty rdf:about="#C___"> 
+<rdfs:range rdf:resource="&xsd;boolean"/>
+</owl:DatatypeProperty> 
+<owl:DatatypeProperty rdf:about="#C++_&"> 
+<rdfs:range rdf:resource="&xsd;boolean"/>
+<rdfs:subPropertyOf rdf:resource="#C___"/>
+</owl:DatatypeProperty> 
+<owl:DatatypeProperty rdf:about="#C#"> 
+<rdfs:range rdf:resource="&xsd;boolean"/>
+</owl:DatatypeProperty> 
+<owl:DatatypeProperty rdf:about="#ima_godini_covek_C++"> 
+<rdfs:domain 
+<rdf:Description rdf:about="&owl;Thing"/>
+
+</rdfs:domain>
+<rdfs:range rdf:resource="&xsd;real"/>
+<owl:propertyDisjointWith rdf:resource="#C#"/>
+<owl:propertyDisjointWith rdf:resource="#C___"/>
+<owl:equivalentProperty rdf:resource="#Основно"/>
+<owl:equivalentProperty rdf:resource="#ima_godini_C++"/>
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+</owl:DatatypeProperty> 
+<!--  Individuals --> 
+<owl:Thing rdf:about="#C++">
+</owl:Thing>
+<owl:Thing rdf:about="#Java++_&_Java">
+<ima_java_C++rdf:resource="#Java++_&_Java"/>
+<ima_C++rdf:resource="#Java++_&_Java"/>
+<ima_godini_covek_C++>
+5
+</ima_godini_covek_C++>
+<C___>
+5
+</C___>
+</owl:Thing>
+</rdf:RDF>
